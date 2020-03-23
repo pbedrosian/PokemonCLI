@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require './lib/pokemon_cli'
+
+PokemonCLI::CLI.new.call #calls on the class method CLI to start thr program
