@@ -10,24 +10,34 @@ class PokemonCLI::CLI
     2.times {puts " "}
     puts "Welcome to the complete Gen. 1 Pokedex!"
     sleep(1)
-    puts "Type 'start' to see full list of Pokemon or type 'exit' to close"
+    puts "Type '0' to see full list of Pokemon or type '1234' to close"
     print @@prompt
-    # list_actions
     start
     closeing
   end
 
   def start
     input = nil
-    while input != "exit"
-      input = gets.chomp
+    while input != 1234
+      input = gets.to_i
     case input
-    when "start"
-      binding.pry
-      # API.create_objects
+    when 0
       API.list_names
-      2.times {puts " "}
-      # input_loop
+      puts " "
+      puts "Enter in the Pokemon Index number to see that stats:"
+      print @@prompt
+    when 1..151
+      puts " "
+      puts " "
+      Pokemon.get_stats(input)
+      puts " "
+      puts " "
+      puts "Enter in another number to learn more, type '0' to see the list again or type '1234' to close."
+      @@prompt
+    when 152..1233
+      puts "Please enter a number between 1 - 151"
+    when 1235..Float::INFINITY
+      puts "Please enter a number between 1 - 151"
     end
     end
   end
@@ -44,9 +54,4 @@ class PokemonCLI::CLI
       num += 1
     end
     end
-
-  def input_loop
-    
-  end
-
 end
