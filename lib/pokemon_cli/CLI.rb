@@ -2,44 +2,51 @@
 
 class PokemonCLI::CLI
 
+  @@prompt = ">"
+
   def call
+    loading
+    API.create_objects
+    2.times {puts " "}
     puts "Welcome to the complete Gen. 1 Pokedex!"
     sleep(1)
-    list_actions
-    user_selection
+    puts "Type 'start' to see full list of Pokemon or type 'exit' to close"
+    print @@prompt
+    # list_actions
+    start
     closeing
   end
 
-  def list_actions
-    puts "Enter a number to begin or type 'exit' to close"
-    puts <<-DOC.gsub /^\s*/, ''
-      1. Enter a Pokemons Name to get more info.
-      2. List Pokemon by Index.
-    DOC
-  end
-  def user_selection
+  def start
     input = nil
     while input != "exit"
       input = gets.chomp
     case input
-    when "1"
-      puts "Enter a Pokemons Name to get more information -- Make sure it is spelled correctly."
-      #retreive input // list info on pokemon
-      # print custom error if name is not in API or check spelling
-      input = gets.chomp
-      #request more input
-      puts "Enter another name to explore more. Type 'menu' to see the menu or 'exit' to close."
-    when "2"
+    when "start"
+      binding.pry
+      # API.create_objects
       API.list_names
-      2.times {puts " " }
-      puts "Enter the Pokemon Index number to learn more. Type 'menu' to see the menu or 'exit' to close"
-      2.times {puts " " }
+      2.times {puts " "}
+      # input_loop
     end
-   end
+    end
   end
 
   def closeing
     puts "See you next time!"
+  end
+
+  def loading
+    num = 0
+    until num == 3 do
+      puts "LOADING DATA...PLEASE WAIT"
+      sleep(1)
+      num += 1
+    end
+    end
+
+  def input_loop
+    
   end
 
 end

@@ -9,4 +9,7 @@ Interface
     - Type
     - Generation
 
-    
+To DO
+- build UI
+- add stats to pokemon instances
+- pull instances from Pokemon class
