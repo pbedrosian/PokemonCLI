@@ -21,7 +21,7 @@ class Pokemon
     self.attack = API.all[1][4]
     self.hp = API.all[1][5]
     self.index = API.all[2]
-    self.type = API.all[3].map {|a| a.capitalize}
+    self.type = API.all[3].each {|a| a.capitalize}
   end
 
   def self.get_stats(index)
