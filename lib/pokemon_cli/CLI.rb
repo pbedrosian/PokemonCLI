@@ -8,6 +8,7 @@ class PokemonCLI::CLI
     loading
     API.create_objects
     2.times {puts " "}
+    # Logo.logo
     puts "Welcome to the complete Gen. 1 Pokedex!"
     sleep(1)
     puts "Type '0' to see full list of Pokemon or type '1234' to close"
@@ -22,9 +23,10 @@ class PokemonCLI::CLI
       input = gets.to_i
     case input
     when 0
-      API.list_names
+      # API.list_names
+      Pokemon.get_name_list
       puts " "
-      puts "Enter in the Pokemon Index number to see that stats:"
+      puts "Enter in the Pokemon Index number to see its stats:"
       print @@prompt
     when 1..151
       puts " "
@@ -32,12 +34,12 @@ class PokemonCLI::CLI
       Pokemon.get_stats(input)
       puts " "
       puts " "
-      puts "Enter in another number to learn more, type '0' to see the list again or type '1234' to close."
+      puts "Enter in another index to learn more, type '0' to see the list again or type '1234' to close."
       @@prompt
     when 152..1233
-      puts "Please enter a number between 1 - 151"
+      puts "Please enter a number between 1 & 151"
     when 1235..Float::INFINITY
-      puts "Please enter a number between 1 - 151"
+      puts "Please enter a number between 1 & 151"
     end
     end
   end
@@ -47,11 +49,10 @@ class PokemonCLI::CLI
   end
 
   def loading
-    num = 0
-    until num == 3 do
-      puts "LOADING DATA...PLEASE WAIT"
-      sleep(1)
-      num += 1
-    end
-    end
+    puts "LOCATING DATA"
+    sleep(1)
+    puts "DOWNLOADING POKEMON DATA"
+    sleep(1)
+    puts "CREATING OBJECTS...THIS MAY TAKE A FEW SECONDS"
+  end
 end

@@ -21,12 +21,13 @@ class Pokemon
     self.attack = API.all[1][4]
     self.hp = API.all[1][5]
     self.index = API.all[2]
-    self.type = API.all[3].map {|a| a.capitalize}
+    self.type = API.all[3].each {|a| a.capitalize}
   end
 
   def self.get_stats(index)
     self.all.select do |object|
       if object.index == index
+        sleep(1)
       puts "Name: #{object.name} -- ##{object.index}"
       puts "Type: #{object.type.join(', ')}"
       puts "--------------------------"
@@ -37,7 +38,13 @@ class Pokemon
       puts "Special Attack: #{object.special_attack}"
       puts "special_defense: #{object.special_defense}"
     end
-
-   end
+    end
   end
+
+  def self.get_name_list
+    self.all.each.with_index(1) do |name, index|
+      puts "#{index}. #{name.name}"
+    end
+  end
+
 end

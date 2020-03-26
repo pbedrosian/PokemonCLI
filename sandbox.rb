@@ -80,3 +80,48 @@ puts c[0].join('  -  ')
 puts c[2].join('  -  ')
 puts c[1].join('  -  ')
 end
+
+,                           .::.
+PokeMon Logo Converted       .;:**'            AMC
+                          `            0
+.:XHHHHk.              db.   .;;.     dH  MX   0
+oMMMMMMMMMMM       ~MM  dMMP :MMMMMR   MMM  MR      ~MRMN
+QMMMMMb  "MMX       MMMMMMP !MX' :M~   MMM MMM  .oo. XMMM 'MMM
+`MMMM.  )M> :X!Hk. MMMM   XMM.o"  .  MMMMMMM X?XMMM MMM>!MMP
+'MMMb.dM! XM M'?M MMMMMX.`MMMMMMMM~ MM MMM XM `" MX MMXXMM
+~MMMMM~ XMM. .XM XM`"MMMb.~*?**~ .MMX M t MMbooMM XMMMMMP
+ ?MMM>  YMMMMMM! MM   `?MMRb.    `"""   !L"MMMMM XM IMMM
+  MMMX   "MMMM"  MM       ~%:           !Mh.""" dMI IMMP
+  'MMM.                                             IMX
+   ~M!M                                             IMP
+
+
+def logo
+  puts "88888b.  .d88b. 888  888 .d88b. 88888b.d88b.  .d88b. 88888b."
+  puts "888 "88bd88""88b888 .88Pd8P  Y8b888 "888 "88bd88""88b888 "88b"
+  puts "888  888888  888888888K 88888888888  888  888888  888888  888"
+  puts "888 d88PY88..88P888 "88bY8b.    888  888  888Y88..88P888  888"
+  puts "88888P"  "Y88P" 888  888 "Y8888 888  888  888 "Y88P" 888  888"
+  puts "888"
+  puts "888"
+  puts "888"
+end
+
+________   ____  _    __        _     ___    _
+\       \  \_  |/ \  /_/   __  / |   /_  \  | |
+ \_  \_  \ __\    /  ___  |  \/  | ___ |  \ | |
+   \   __//  \|   \ / |_\ |      |/   \|   \| |
+    \  \ | |_ |    \\  --|| |\/| |  |_ | |\   |
+     \__\ \__/|_|\__|\__/ |_|  |_|\___/|_| |__|
+
+## -- this is for the API class
+     def self.list_names
+       names = HTTParty.get('https://pokeapi.co/api/v2/pokemon?limit=151')
+       index = 0
+       name_list = names["results"].collect { |p| "#{index += 1}. #{p["name"].capitalize}"}
+       puts " "
+       puts "Generation 1 Pokemon"
+       puts " "
+       puts name_list
+     end
+## ----
