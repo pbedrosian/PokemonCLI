@@ -21,7 +21,7 @@ class Pokemon
     self.attack = API.all[1][4]
     self.hp = API.all[1][5]
     self.index = API.all[2]
-    self.type = API.all[3].each {|a| a.capitalize}
+    self.type = API.all[3].map {|a| a.capitalize}
   end
 
   def self.get_stats(index)
@@ -36,7 +36,7 @@ class Pokemon
       puts "Defense: #{object.defense}"
       puts "Speed: #{object.speed}"
       puts "Special Attack: #{object.special_attack}"
-      puts "special_defense: #{object.special_defense}"
+      puts "special Defense: #{object.special_defense}"
     end
     end
   end

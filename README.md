@@ -1,28 +1,16 @@
 # PokemonCLI
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/PokemonCLI`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome the Unofficial Generation 1 Pokedex! This gem allows you to see all 151 original Pokemon and get their stats based on their index number.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'PokemonCLI'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install PokemonCLI
+AS OF VERSION 1.0.0, THERE IS NO GEM PUBLISHED FOR DOWNLOAD OR USE. TO ACCESS THIS PROJECT PLEASE VISIT:
+https://github.com/pbedrosian/PokemonCLI
 
 ## Usage
 
-TODO: Write usage instructions here
+Fork or clone this github repo and direct to it in your command line of choice. cd into the PokemonCLI folder. Enter, without the quotes, "./bin/pokedex" to run the executable file using ruby. Follow on-screen prompts to find your view all 151 Pokemon and see the stats of each one!
+
 
 ## Development
 
