@@ -12,9 +12,9 @@ class PokemonCLI::CLI
     puts "Welcome to the complete Gen. 1 Pokedex!"
     sleep(1)
     puts "Type 'start' to see full list of Pokemon or type 'exit' to close"
+    puts " "
     print @@prompt
     start
-    # closeing
   end
 
   def start
@@ -27,17 +27,10 @@ class PokemonCLI::CLI
         puts " "
         puts "Enter the Pokemon's index number to learn more, or type 'exit' to close."
         print @@prompt
-      # when 1..151
-      #   puts " "
-      #   Pokemon.find_index((input).to_i)
-      #   puts " "
-      #   puts "Enter in another number to see the stats or type 'exit' to close."
-      #   puts " "
-      #   print @@prompt
-    else
-      puts " "
-      test(input)
-    end
+      else
+        puts " "
+        get_info(input)
+      end
     end
   end
 
@@ -53,7 +46,7 @@ class PokemonCLI::CLI
     puts "CREATING OBJECTS...THIS MAY TAKE A FEW SECONDS"
   end
 
-  def test(num = nil)
+  def get_info(num = nil)
     if (1..151).cover?((num).to_i)
       Pokemon.find_index((num).to_i)
       puts " "
@@ -63,7 +56,9 @@ class PokemonCLI::CLI
     elsif num == "exit"
       closeing
     else
-      puts "please enter a number between 1 and 151"
+      puts "Please enter a number between 1 and 151 or type 'exit' to close."
+      puts " "
+      print @@prompt
     end
   end
 
