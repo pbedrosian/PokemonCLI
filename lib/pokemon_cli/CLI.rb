@@ -7,39 +7,36 @@ class PokemonCLI::CLI
   def call
     loading
     API.create_objects
+    # binding.pry
     2.times {puts " "}
-    # Logo.logo
     puts "Welcome to the complete Gen. 1 Pokedex!"
     sleep(1)
-    puts "Type '0' to see full list of Pokemon or type '1234' to close"
+    puts "Type 'start' to see full list of Pokemon or type 'exit' to close"
     print @@prompt
     start
-    closeing
+    # closeing
   end
 
   def start
     input = nil
-    while input != 1234
-      input = gets.to_i
-    case input
-    when 0
-      # API.list_names
-      Pokemon.get_name_list
+    while input != "exit"
+      input = gets.chomp
+      case input
+      when "start"
+        Pokemon.get_name_list
+        puts " "
+        puts "Enter the Pokemon's index number to learn more, or type 'exit' to close."
+        print @@prompt
+      # when 1..151
+      #   puts " "
+      #   Pokemon.find_index((input).to_i)
+      #   puts " "
+      #   puts "Enter in another number to see the stats or type 'exit' to close."
+      #   puts " "
+      #   print @@prompt
+    else
       puts " "
-      puts "Enter in the Pokemon Index number to see its stats:"
-      print @@prompt
-    when 1..151
-      puts " "
-      puts " "
-      Pokemon.get_stats(input)
-      puts " "
-      puts " "
-      puts "Enter in another index to learn more, type '0' to see the list again or type '1234' to close."
-      @@prompt
-    when 152..1233
-      puts "Please enter a number between 1 & 151"
-    when 1235..Float::INFINITY
-      puts "Please enter a number between 1 & 151"
+      test(input)
     end
     end
   end
@@ -55,4 +52,19 @@ class PokemonCLI::CLI
     sleep(1)
     puts "CREATING OBJECTS...THIS MAY TAKE A FEW SECONDS"
   end
+
+  def test(num = nil)
+    if (1..151).cover?((num).to_i)
+      Pokemon.find_index((num).to_i)
+      puts " "
+      puts "Enter in another number to see the Pokemon's stats, type 'start' to see the list again, or type 'exit' to close."
+      puts " "
+      print @@prompt
+    elsif num == "exit"
+      closeing
+    else
+      puts "please enter a number between 1 and 151"
+    end
+  end
+
 end

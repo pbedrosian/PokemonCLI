@@ -47,4 +47,11 @@ class Pokemon
     end
   end
 
+  def self.find_index(num = nil)
+   self.all.each do |obj|
+       if num == obj.index
+         self.get_stats(num)
+       end
+     end
+   end
 end
